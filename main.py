@@ -1,4 +1,20 @@
+import OpenGL.GL as GL
 import glfw
+
+
+def display() -> None:
+    GL.glClear(GL.GL_COLOR_BUFFER_BIT)
+    GL.glMatrixMode(GL.GL_MODELVIEW)
+    GL.glLoadIdentity()
+
+    GL.glBegin(GL.GL_TRIANGLES)
+    GL.glVertex2f(-0.5, -0.5)
+    GL.glVertex2f(0.5, -0.5)
+    GL.glVertex2f(0.0, 0.5)
+    GL.glEnd()
+
+    GL.glFlush()
+
 
 def main():
     # Initialize the library
@@ -16,6 +32,7 @@ def main():
     # Loop until the user closes the window
     while not glfw.window_should_close(window):
         # Render here, e.g. using pyOpenGL
+        display()
 
         # Swap front and back buffers
         glfw.swap_buffers(window)
